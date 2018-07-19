@@ -137,7 +137,7 @@ class UpsShippingRates_RatesService extends BaseApplicationComponent
 		$shipperAddress->setCity($from_address_params['city']);
 		$shipperAddress->setStateProvinceCode($from_address_params['state']);
 		$shipperAddress->setPostalCode($from_address_params['zip']);
-
+        $shipperAddress->setCountryCode($from_address_params['country']);
 
 		// Destination Address
 		$shipTo = $shipment->getShipTo();
