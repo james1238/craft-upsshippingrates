@@ -166,10 +166,10 @@ class UpsShippingRates_RatesService extends BaseApplicationComponent
 		$weight = new Mass($order->getTotalWeight(), $settings->weightUnits);
 
 		$parcel_params = [
-			"length"	=> $length->toUnit('inch') ?: 0.1,
-			"width"		=> $width->toUnit('inch') ?: 0.1,
-			"height"	=> $height->toUnit('inch') ?: 0.1,
-			"weight"	=> $weight->toUnit('lbs')
+			"length"	=> $length->toUnit('cm') ?: 0.1,
+			"width"		=> $width->toUnit('cm') ?: 0.1,
+			"height"	=> $height->toUnit('cm') ?: 0.1,
+			"weight"	=> $weight->toUnit('kg')
 		];
 
 		if ($parcel_params['weight'] == 0)
@@ -187,7 +187,14 @@ class UpsShippingRates_RatesService extends BaseApplicationComponent
 		$dimensions->setLength($parcel_params['height']);
 
 		$unit = new \Ups\Entity\UnitOfMeasurement;
-		$unit->setCode(\Ups\Entity\UnitOfMeasurement::UOM_IN);
+		$unit->setCode(\Ups\Entity\UnitOfMeasurement::UOM_CM);
+
+        $weightUnit = new \Ups\Entity\UnitOfMeasurement;
+        $weightUnit->setCode(\Ups\Entity\UnitOfMeasurement::UOM_KGS);
+
+        $package->getPackageWeight()->setUnitOfMeasurement($weightUnit);
+
+
 
 		$dimensions->setUnitOfMeasurement($unit);
 		$package->setDimensions($dimensions);
