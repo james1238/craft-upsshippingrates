@@ -96,7 +96,7 @@ class UpsShippingRates_RatesService extends BaseApplicationComponent
 
 		// Specify our Account Number
 		$shipper = new \Ups\Entity\Shipper();
-		$shipper->setShipperNumber($upsSettings->upsUsername);
+		$shipper->setShipperNumber($upsSettings->upsAccountNumber);
 
 		$shipment = new \Ups\Entity\Shipment();
 		$shipment->setShipper($shipper);

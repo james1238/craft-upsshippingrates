@@ -89,7 +89,7 @@ class UpsShippingRatesPlugin extends BasePlugin
      */
     public function getVersion()
     {
-        return '1.0.2';
+        return '1.0.3';
     }
 
     /**
@@ -193,6 +193,13 @@ class UpsShippingRatesPlugin extends BasePlugin
             'upsUsername' => [
                 AttributeType::String,
                 'label'     => 'UPS Account Username',
+                'default'   => '',
+                'required'  => true
+            ],
+
+            'upsAccountNumber' => [
+                AttributeType::String,
+                'label'     => 'UPS Account Number',
                 'default'   => '',
                 'required'  => true
             ],

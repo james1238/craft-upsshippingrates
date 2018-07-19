@@ -45,6 +45,17 @@
 
 }}
 
+{{ forms.textField({
+    label: 'UPS Account Number',
+    instructions: 'Your UPS Account Number',
+    id: 'upsAccountNumber',
+    name: 'upsAccountNumber',
+    value: settings['upsAccountNumber'],
+    errors: settings.getErrors('upsAccountNumber')
+})
+
+}}
+
 {{ forms.passwordField({
     label: 'UPS Account Password',
     instructions: 'Your UPS Account Password',
